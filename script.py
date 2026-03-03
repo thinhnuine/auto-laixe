@@ -4,7 +4,7 @@ import datetime
 import subprocess
 
 
-POPUP_IMAGE = "popup.png"
+POPUP_IMAGE = "imgs/popup.png"
 
 
 # focus Brave
