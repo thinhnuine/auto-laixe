@@ -6,17 +6,6 @@ import subprocess
 
 POPUP_IMAGE = "imgs/popup.png"
 
-
-# focus Brave
-def focus_brave():
-
-    subprocess.run([
-        "osascript",
-        "-e",
-        'tell application "Brave Browser" to activate'
-    ])
-
-
 # reload tab
 def reload_page():
 
@@ -49,6 +38,12 @@ def click_center():
     print("Đã click giữa màn hình")
 
 
+# di chuột ra góc để không đè lên popup (dễ detect hơn)
+def move_cursor_to_corner():
+    pyautogui.moveTo(20, 20, duration=0.2)
+    time.sleep(0.15)
+
+
 # check popup
 def check_popup():
 
@@ -61,8 +56,6 @@ def check_popup():
         )
 
         if location:
-
-            focus_brave()
 
             time.sleep(0.5)
 
@@ -97,6 +90,7 @@ while True:
 
     time.sleep(10)
 
+    move_cursor_to_corner()
     check_popup()
 
     check_reload()
